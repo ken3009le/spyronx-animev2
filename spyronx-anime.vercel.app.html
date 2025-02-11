@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Random Anime</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .credit {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 16px;
+            color: gray;
+            font-weight: bold;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        .menu-btn {
+            cursor: pointer;
+            font-size: 24px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Random Anime</h1>
+    <img src="RAT.gif" id="smallGif" alt="GIF" />
+    
+    <!-- Dark mode toggle button -->
+    <span id="menuBtn" class="menu-btn">&#x2630;</span>
+
+    <!-- Buttons with icons -->
+    <button id="getWaifuBtn">Waifu 💕</button>
+    <button id="getNekoBtn">Neko 🐈</button>
+    <button id="getShinobuBtn">Shinobu 💜</button>
+    <button id="getMeguminBtn">Megumin 🌟</button>
+    <button id="getBullyBtn">Bully 😡</button>
+    <button id="getCuddleBtn">Cuddle 💑</button>
+    <button id="getCryBtn">Cry 😭</button>
+    <button id="getHugBtn">Hug 🤗</button>
+    <button id="getAwooBtn">Awoo 🐺</button>
+    <button id="getKissBtn">Kiss 💋</button>
+    <button id="getLickBtn">Lick 🤭</button>
+    <button id="getPatBtn">Pat 👌</button>
+    <button id="getSmugBtn">Smug 😏</button>
+    <button id="getBonkBtn">Bonk 🔨</button>
+    <button id="getYeetBtn">Yeet 🚀</button>
+    <button id="getBlushBtn">Blush 😊</button>
+    <button id="getSmileBtn">Smile 😄</button>
+    <button id="getWaveBtn">Wave 👋</button>
+    <button id="getHighfiveBtn">Highfive 🤟</button>
+    <button id="getHandholdBtn">Handhold 🤝</button>
+    <button id="getNomBtn">Nom 🍞</button>
+    <button id="getBiteBtn">Bite 🦵</button>
+    <button id="getGlompBtn">Glomp 🤜🤛</button>
+    <button id="getSlapBtn">Slap 😠</button>
+    <button id="getKillBtn">Kill ☠️</button>
+    <button id="getKickBtn">Kick 🤼</button>
+    <button id="getHappyBtn">Happy 😃</button>
+    <button id="getWinkBtn">Wink 😉</button>
+    <button id="getPokeBtn">Poke 👉</button>
+    <button id="getDanceBtn">Dance 🕺</button>
+    <button id="getCringeBtn">Cringe 😳</button>
+    <button id="clearBtn">Clear All 🔍</button>
+
+    <br><br>
+    <div id="animeContainer"></div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" id="closeBtn">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <div class="credit">eww, Web của Kenzema</div>
+
+    <script src="main.js"></script>
+</body>
+</html>
