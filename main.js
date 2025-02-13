@@ -1,6 +1,6 @@
 // Function to fetch anime images
 function fetchAnime(category) {
-    const apiUrl = `https://api.waifu.pics/nsfw/${category}`;
+    const apiUrl = `https://api.waifu.pics/sfw/${category}`;
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -30,14 +30,6 @@ function fetchAnime(category) {
             console.error('Lỗi khi tải dữ liệu:', error);
         });
 }
-
-// Event listener for RAT.gif
-const ratGif = document.getElementById('smallGif');
-ratGif.addEventListener('click', function () {
-    const nsfwCategories = ['waifu', 'neko', 'trap', 'blowjob'];
-    const randomCategory = nsfwCategories[Math.floor(Math.random() * nsfwCategories.length)];
-    fetchAnime(randomCategory);
-});
 
 // Event listeners for each category button
 const categories = [
@@ -87,45 +79,4 @@ document.getElementById('menuBtn').addEventListener('click', function () {
     } else {
         menuBtn.innerHTML = '&#x2630;'; // Change to light mode icon (or modify as desired)
     }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll("button");
-    const gif = document.getElementById("smallGif");
-    const animeContainer = document.getElementById("animeContainer");
-
-    // Danh sách các nút NSFW
-    const nsfwButtons = ["getWaifuBtn", "getNekoBtn", "getTrapBtn", "getBlowjobBtn"];
-
-    // Ẩn tất cả các nút ngoại trừ NSFW khi nhấn vào RAT.gif
-    gif.addEventListener("click", function () {
-        buttons.forEach(button => {
-            if (nsfwButtons.includes(button.id)) {
-                button.style.display = "inline-block"; // Hiển thị các nút NSFW
-            } else {
-                button.style.display = "none"; // Ẩn các nút khác
-            }
-        });
-    });
-
-    // Hàm để tải ảnh từ API
-    function fetchImage(endpoint) {
-        fetch(`https://nekos.life/api/v2/img/${endpoint}`)
-            .then(response => response.json())
-            .then(data => {
-                const img = document.createElement("img");
-                img.src = data.url;
-                img.alt = "Anime Image";
-                img.style.maxWidth = "300px";
-                img.style.margin = "10px";
-                animeContainer.innerHTML = ''; // Xóa ảnh cũ
-                animeContainer.appendChild(img);
-            })
-            .catch(error => console.error("Error fetching image:", error));
-    }
-
-    // Gán sự kiện cho các nút NSFW
-    document.getElementById("getWaifuBtn").addEventListener("click", () => fetchImage("waifu"));
-    document.getElementById("getNekoBtn").addEventListener("click", () => fetchImage("neko"));
-    document.getElementById("getTrapBtn").addEventListener("click", () => fetchImage("trap"));
-    document.getElementById("getBlowjobBtn").addEventListener("click", () => fetchImage("blowjob"));
 });
